@@ -92,30 +92,31 @@ After ->
  
 
 ## 🔧 Setup Instructions 
-### 📦  **Install dependencies**
+
+📦  **Install dependencies**
 
 ```bash
 pip install -r requirements.txt
 ```
 
-### 🐳 **Compose the containers**
+🐳 **Compose the containers**
 
 ```bash
 docker-compose up -d
 ```
-### 🚀 **Launch the kafka producer**
+🚀 **Launch the kafka producer**
 
 ```bash
-pyhton src/kafka_producer.py
+python src/kafka_producer.py
 ```
 
-### 🔄 **Launch the Spark Structured Streaming job**
+🔄 **Launch the Spark Structured Streaming job**
 
 ```bash
 python src/spark_consumer.py
 ```
 
-### 📊 **Monitor Cassandra**
+📊 **Monitor Cassandra**
 
 ```bash
 docker exec -it cassandra cqlsh
