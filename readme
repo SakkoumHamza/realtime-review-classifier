@@ -1,0 +1,124 @@
+# 🧠 Amazon Kindle Real-Time Review Classifier 🚀
+
+> **Data Engineering & AI Project**  
+> Real-time sentiment classification of Kindle reviews using a **Kafka + Spark + LSTM (TensorFlow/Keras) + Cassandra** pipeline.
+
+---
+
+## 🚀 Functionalities
+
+✅ Real-time streaming from **Kafka**  
+✅ Scalable, fault-tolerant pipeline using **PySpark Structured Streaming**  
+✅ **LSTM** deep learning model with **97.5% accuracy** on unseen data  
+✅ Seamless integration with **Apache Cassandra**, a distributed NoSQL database
+
+---
+## 📸 Screenshots
+
+### 🔹Confusion matrix of the model 
+![Home Page](screenshots/cm.png)
+
+### 🔹 Kafka producer logs
+![Home Page](screenshots/kafka.png)
+
+### 🔹 spark consumer logs
+![Home Page](screenshots/spark.png)
+
+### 🔹 Cassandra target table
+![Prediction Result](screenshots/cassandra.png)
+
+---
+
+## 🛠️ Tech Stack
+
+| Component         | Technology                    |
+|------------------|-------------------------------|
+| Ingestion         | Apache Kafka                 |
+| Stream Processing | Apache Spark Structured Streaming |
+| AI Model          | LSTM (Keras)                 |
+| Database          | Apache Cassandra             |
+| Model Format      | `.h5` (Keras)                |
+
+---
+
+## ⚙️ Pipeline Architecture
+
+```text
+Kafka (Kindle reviews stream)
+        ↓
+Spark Structured Streaming
+        ↓
+Text Preprocessing + LSTM Sentiment Inference
+        ↓
+Apache Cassandra (target database)
+
+## 👨🏻‍💻 Structure de projet
+```
+
+```text
+├── data/                    
+├── model/
+│   ├── model.h5        # Trained LSTM model
+    |── model_creation.ipynb       # Model creation notebook
+│   └── tokenizer.pkl        # Tokenizer for text preprocessing
+├── src/
+│   ├── spark_consumer.py      
+    ├── kafka_producer.py      
+│   ├── download_data.py            
+├── requirements.txt         # Python dependencies
+├── docker-compose.yml             
+├── checkpoint.txt
+└── README.md                # You're here!
+```
+
+## 🧪 Exemple
+
+```text
+
+Before ->
+
+| reviewID  | reviewerName |  review_text                | reviewTime |
+|-----------|--------------|-----------------------------|------------|
+| 123abc    | Hamza        | The book was wonderfull!    |  1-18-2013 |
+
+After ->
+
+| reviewID  | reviewerName |  review_text                | sentiment  | reviewTime |
+|-----------|--------------|-----------------------------|------------|------------|
+| 123abc    |  Hamza       | The book was wonderfull!    | Positive   |  1-18-2013 |
+
+```
+ 
+
+## 🔧 Setup Instructions 
+### 📦 1. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 🐳 2. Compose the containers 
+
+```bash
+docker-compose up -d
+```
+### 🚀 3. Launch the kafka producer
+
+```bash
+pyhton3 src/kafka_producer.py
+```
+
+### 🔄 3. Launch the Spark Structured Streaming job
+```bash
+python3 src/spark_consumer.py
+```
+
+### 📊 4. Monitor Cassandra
+1. Enter the cassandra container
+```bash
+docker exec -it cassandra cqlsh
+```
+2. Query the reviews table
+```sql
+SELECT * FROM kindle_reviews.reviews;
+```
