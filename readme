@@ -52,23 +52,24 @@ Text Preprocessing + LSTM Sentiment Inference
         ↓
 Apache Cassandra (target database)
 
-## 👨🏻‍💻 Structure de projet
 ```
+## 👨🏻‍💻 Structure de projet
 
 ```text
 ├── data/                    
 ├── model/
-│   ├── model.h5        # Trained LSTM model
-    |── model_creation.ipynb       # Model creation notebook
-│   └── tokenizer.pkl        # Tokenizer for text preprocessing
+│   ├── model.h5                # Trained LSTM model
+│   ├── model_creation.ipynb    # Model creation notebook
+│   └── tokenizer.pkl           # Tokenizer for text preprocessing
 ├── src/
 │   ├── spark_consumer.py      
-    ├── kafka_producer.py      
-│   ├── download_data.py            
-├── requirements.txt         # Python dependencies
+│   ├── kafka_producer.py      
+│   └── download_data.py            
+├── requirements.txt            # Python dependencies
 ├── docker-compose.yml             
 ├── checkpoint.txt
-└── README.md                # You're here!
+└── README.md                   # You're here!
+
 ```
 
 ## 🧪 Exemple
