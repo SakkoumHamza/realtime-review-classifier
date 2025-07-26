@@ -1,9 +1,8 @@
 # 🧠 Amazon Kindle Real-Time Review Classifier 🚀
 
-> **Data Engineering & AI Project**  
-> Real-time sentiment classification of Kindle reviews using a **Kafka + Spark + LSTM (TensorFlow/Keras) + Cassandra** pipeline.
+**Data Engineering & AI Project**  
+>Real-time sentiment classification of Kindle reviews using a **Kafka + Spark + LSTM (TensorFlow/Keras) + Cassandra** pipeline.
 
----
 
 ## 🚀 Functionalities
 
@@ -15,17 +14,18 @@
 ---
 ## 📸 Screenshots
 
-### 🔹Confusion matrix of the model 
-![Home Page](screenshots/cm.png)
+### 🔹 Confusion matrix of the model 
+![Confusion matrix](screenshots/cm.png)
 
 ### 🔹 Kafka producer logs
-![Home Page](screenshots/kafka.png)
+![Kafka producer logs](screenshots/kafka.png)
 
-### 🔹 spark consumer logs
-![Home Page](screenshots/spark.png)
+### 🔹 Spark consumer logs
+![Spark consumer logs](screenshots/spark.png)
 
 ### 🔹 Cassandra target table
-![Prediction Result](screenshots/cassandra.png)
+![Cassandra target table](screenshots/cassandra.png)
+
 
 ---
 
@@ -106,15 +106,16 @@ docker-compose up -d
 ### 🚀 3. Launch the kafka producer
 
 ```bash
-pyhton3 src/kafka_producer.py
+pyhton src/kafka_producer.py
 ```
 
-### 🔄 3. Launch the Spark Structured Streaming job
+### 🔄 4. Launch the Spark Structured Streaming job
+
 ```bash
-python3 src/spark_consumer.py
+python src/spark_consumer.py
 ```
 
-### 📊 4. Monitor Cassandra
+### 📊 5. Monitor Cassandra
 1. Enter the cassandra container
 ```bash
 docker exec -it cassandra cqlsh
